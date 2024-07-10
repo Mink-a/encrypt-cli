@@ -11,7 +11,7 @@ program
   .option("-t, --text <string>", "Text to encrypt or decrypt")
   .option("-a, --action <string>", "Action to perform (encrypt or decrypt)")
   .action((options) => {
-    if (!options.enKey) {
+    if (!options.key) {
       console.log("Encryption key is required");
       process.exit(1);
     }
@@ -28,10 +28,10 @@ program
       process.exit(1);
     }
     if (options.action === "encrypt") {
-      const res = encrypt(options.text, options.enKey);
+      const res = encrypt(options.text, options.key);
       console.log(res);
     } else {
-      const res = decrypt(options.text, options.enKey);
+      const res = decrypt(options.text, options.key);
       console.log(res);
     }
   });
